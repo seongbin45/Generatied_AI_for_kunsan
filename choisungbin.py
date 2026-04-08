@@ -1,3 +1,8 @@
+import streamlit as st
+import pandas as pd
+import sqlite3  # 👈 이 녀석이 빠져 있어서 에러가 났던 겁니다!
+import plotly.express as px
+
 <!--
 Palette Chosen: "Vibrant Tech & Data" (#FF3366, #00C4B5, #FFD000, #1A1A24, #F3F4F6)
 Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output. All icons use Unicode, and diagrams use structured HTML/CSS.
