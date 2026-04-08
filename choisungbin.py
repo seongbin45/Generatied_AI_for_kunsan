@@ -1,24 +1,14 @@
 import streamlit as st
 import pandas as pd
-import sqlite3  # 👈 이 녀석이 빠져 있어서 에러가 났던 겁니다!
+import sqlite3
 import plotly.express as px
+import streamlit.components.v1 as components # HTML을 렌더링하기 위해 추가
 
-<!--
-Palette Chosen: "Vibrant Tech & Data" (#FF3366, #00C4B5, #FFD000, #1A1A24, #F3F4F6)
-Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output. All icons use Unicode, and diagrams use structured HTML/CSS.
-Plan Summary: 
-1. Intro: Overview of 2024-2026 Youth Info Platforms. 
-2. Platform Trends: MAU growth comparison (Goal: Change -> Line Chart). 
-3. Talent & Hiring: Domestic vs Overseas competencies (Goal: Compare -> Radar Chart) & Hiring flow (HTML/CSS Diagram). 
-4. Business Models: Revenue stream breakdown (Goal: Compare/Composition -> Stacked Bar Chart). 
-5. Entrepreneur Competencies: Top 5 skills (Goal: Organize/Inform -> Horizontal Bar Chart).
-Chart Selection Summary:
-- MAU Growth -> Line Chart -> Shows temporal trends across 3 years. (Chart.js, NO SVG)
-- Competencies -> Radar Chart -> Multivariate comparison between domestic/overseas. (Chart.js, NO SVG)
-- Hiring Process -> Flowchart -> Step-by-step logic. (HTML/CSS, NO SVG)
-- Business Models -> Stacked Bar Chart -> Composition of revenue by company type. (Chart.js, NO SVG)
-- Top 5 Skills -> Horizontal Bar Chart -> Ranking and highlighting key text. (Chart.js, NO SVG)
--->
+# 1. 스트림릿 페이지 기본 설정
+st.set_page_config(page_title="청년 플랫폼 리포트", layout="wide")
+
+# 2. HTML 코드를 파이썬 문자열 변수(html_code)에 저장합니다.
+html_code = """
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -435,3 +425,8 @@ Chart Selection Summary:
 </script>
 </body>
 </html>
+"""
+
+# 3. Streamlit 컴포넌트를 사용하여 HTML 코드를 웹 화면에 출력합니다.
+# 스크롤이 발생하지 않도록 height 값을 충분히 넉넉하게 줍니다.
+components.html(html_code, height=3500, scrolling=True)
