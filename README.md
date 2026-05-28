@@ -1,1 +1,3 @@
 # Generatied_AI_for_kunsan
+2024-2026 청년 플랫폼
+트렌드 & 비즈니스 리포트
