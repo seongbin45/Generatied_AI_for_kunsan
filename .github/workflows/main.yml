@@ -30,17 +30,17 @@ jobs:
         run: |
           echo "$AUTH_JSON_DATA" > auth.json
 
-      - name: 5. 재부팅 트리거 파일 업데이트 (현재 시간 기록)
-        run: |
-          echo "Last reboot: $(date)" > streamlit_reboot_macro/reboot_trigger.txt
-
-      - name: 6. 변경사항을 깃허브에 반영(Push)하기
+      - name: 5. 변경사항을 깃허브에 반영(Push)하기
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add streamlit_reboot_macro/reboot_trigger.txt
           git commit -m "🤖 매일 자동 재부팅 트리거 (reboot_trigger.txt 업데이트)" || echo "변경 사항 없음"
           git push
+
+      - name: 6. 재부팅 트리거 파일 업데이트 (현재 시간 기록)
+        run: |
+          echo "Last reboot: $(date)" > streamlit_reboot_macro/reboot_trigger.txt
 
       - name: 7. 수동 Reboot 버튼 클릭 매크로 가동
         run: |
