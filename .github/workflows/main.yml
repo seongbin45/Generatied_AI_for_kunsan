@@ -3,6 +3,8 @@ name: Daily Streamlit Auto Reboot
 on:
   schedule:
     - cron: '0 15 * * *'  # 매일 한국 시간(KST) 자정(오전 0시)에 자동으로 실행 (UTC 기준 15:00)
+    - cron: '17 23 * * *'                 # KST 매일 오전 8:17 (UTC 23:17)
+    - cron: '37 3,10,12,13 * * *'         # KST 매일 오후 12:37, 7:37, 9:37, 10:37 (UTC 03:37, 10:37, 12:37, 13:37)
   workflow_dispatch:      # 깃허브 웹사이트에서 내가 원할 때 수동으로 실행할 수 있는 버튼 활성화
 
 jobs:
